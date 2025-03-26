@@ -1,18 +1,20 @@
 #include <iostream>
 #include <time.h>
 
+#include "bot.hh"
 #include "game.hh"
 
 using namespace std;
 
 int main() {
   NBBgame game(time(0));
-  int n = 1;
   BSdata dat;
+  NBBbot bot;
+  int n = 1;
 
   while (n) {
-    cout << "Swing: ";
-    cin >> n;
+    n = bot.makeswing();
+    cout << "Swing: " << n << endl;
     dat = game.swing(n);
     if (dat.gameend) {
       cout << " YOU WON IN " << dat.turn << " SWINGS" << endl;
