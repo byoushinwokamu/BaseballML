@@ -10,20 +10,28 @@ int main() {
   NBBgame game(time(0));
   BSdata dat;
   NBBbot bot;
-  int n = 1;
+  int it;
+  long long totalTurns = 0;
+  cout << "How many games? ";
+  cin >> it;
 
-  while (n) {
-    n = bot.makeswing();
-    cout << "Swing: " << n << endl;
-    dat = game.swing(n);
-    if (dat.gameend) {
-      cout << " YOU WON IN " << dat.turn << " SWINGS" << endl;
-      break;
-    } else {
-      cout << " " << dat.ball << " Ball(s) " << dat.strike << " Strike(s)"
-           << endl;
+  for (int i = 0; i < it; i++) {
+    while (true) {
+      int n;
+      n = bot.makeSwing();
+      dat = game.swing(n);
+      bot.applyResult(dat);
+
+      if (dat.gameend) {
+        cout << " YOU WON IN " << dat.turn << " SWINGS, GOAL WAS " << n << endl;
+        totalTurns += dat.turn;
+        break;
+      }
     }
+    game.newgame();
   }
+
+  cout << " Average: " << (double)totalTurns / it << " turns" << endl;
 
   return 0;
 }
