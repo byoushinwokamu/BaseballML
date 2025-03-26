@@ -23,7 +23,8 @@ int main() {
       bot.applyResult(dat);
 
       if (dat.gameend) {
-        cout << " YOU WON IN " << dat.turn << " SWINGS, GOAL WAS " << n << endl;
+        // cout << " YOU WON IN " << dat.turn << " SWINGS, GOAL WAS " << n <<
+        // endl;
         totalTurns += dat.turn;
         break;
       }
@@ -31,7 +32,8 @@ int main() {
     game.newgame();
   }
 
-  cout << " Average: " << (double)totalTurns / it << " turns" << endl;
+  cout << " Played " << it << " game(s)\n";
+  cout << " Average: " << ((double)totalTurns / it) << " turns\n";
 
   return 0;
 }
