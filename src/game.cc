@@ -1,7 +1,9 @@
 #include "game.hh"
 #include "data.hh"
-#include <random>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
 
 NBBgame::NBBgame(void) : turn(0) {
   seed = time(0);
