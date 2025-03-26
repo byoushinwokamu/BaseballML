@@ -2,10 +2,13 @@
 #define __BOT_HH__
 
 #include "data.hh"
+#include "mlp.hh"
 
 class NBBbot {
 private:
-  int n;
+  MLP mlp;
+  int prevSwing[3];
+  BSdata prevDat;
 
 public:
   NBBbot();
