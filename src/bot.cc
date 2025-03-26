@@ -1,5 +1,10 @@
 #include "bot.hh"
 
+NBBbot::NBBbot(void) {
+  ;
+  ;
+}
+
 int NBBbot::makeSwing(void) {
   return n++;
   ;

@@ -8,7 +8,7 @@ private:
   int n;
 
 public:
-  NBBbot() : n(123) {}
+  NBBbot();
   int makeSwing(void);
   void applyResult(BSdata dat);
 };
