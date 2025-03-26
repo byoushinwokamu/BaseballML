@@ -14,8 +14,12 @@ NBBgame::NBBgame(void) : turn(0) {
 NBBgame::NBBgame(int seed) : turn(0), seed(seed) {
   srand(seed);
   goal[0] = rand() % 9 + 1;
-  goal[1] = rand() % 9 + 1;
-  goal[2] = rand() % 9 + 1;
+  do {
+    goal[1] = rand() % 9 + 1;
+  } while (goal[0] == goal[1]);
+  do {
+    goal[2] = rand() % 9 + 1;
+  } while (goal[0] == goal[2] || goal[1] == goal[2]);
 }
 
 void NBBgame::setseed(int seed) {
@@ -26,8 +30,12 @@ void NBBgame::setseed(int seed) {
 void NBBgame::newgame(void) {
   turn = 0;
   goal[0] = rand() % 9 + 1;
-  goal[1] = rand() % 9 + 1;
-  goal[2] = rand() % 9 + 1;
+  do {
+    goal[1] = rand() % 9 + 1;
+  } while (goal[0] == goal[1]);
+  do {
+    goal[2] = rand() % 9 + 1;
+  } while (goal[0] == goal[2] || goal[1] == goal[2]);
 }
 
 BSdata NBBgame::swing(int num) {
