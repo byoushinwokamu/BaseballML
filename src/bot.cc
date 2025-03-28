@@ -1,6 +1,6 @@
 #include "bot.hh"
 
-NBBbot::NBBbot() {
+NBBbot::NBBbot() : bw(1), sw(1) {
   number_freq[1] = 1;
   number_freq[2] = 1;
   number_freq[3] = 1;
@@ -11,6 +11,11 @@ NBBbot::NBBbot() {
   number_freq[8] = 1;
   number_freq[9] = 1;
   srand(time(0));
+}
+
+NBBbot::NBBbot(int ball_weight, int strike_weight)
+    : bw(ball_weight), sw(strike_weight) {
+  NBBbot();
 }
 
 int NBBbot::weighted_random_pick(const vector<int> &exclude) {

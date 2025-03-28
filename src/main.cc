@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char **argv) {
   NBBgame game(time(0));
   BSdata dat;
   NBBbot bot;
